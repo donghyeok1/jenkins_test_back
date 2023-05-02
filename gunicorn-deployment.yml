@@ -16,8 +16,9 @@ spec:
     containers:
     - name: container
       image: cis07385/back:latest
+      command: ["/bin/sh", "-ec", "python manage.py makemigrations && python manage.py migrate && gunicorn config.wsgi --bind 0.0.0.0:8000"]
       envFrom:
       - configMapRef:
-          name: gunicorn-cm-dev
+          name: gunicorn-cm
       ports:
       - containerPort: 8000
