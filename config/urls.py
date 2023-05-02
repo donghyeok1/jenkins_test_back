@@ -20,5 +20,5 @@ import web.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('dev/data', web.views.read)
+    path('dev/data/', web.views.read)
 ]
