@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: gunicorn-deployment-dev
+ namespace: cdh-dev
+spec:
+ selector:
+   matchLabels:
+    type: back
+ replicas: 1
+ template:
+   metadata:
+     labels:
+       type: back
+   spec:
+    containers:
+    - name: container
+      image: cis07385/back:latest
+      envFrom:
+      - configMapRef:
+          name: gunicorn-cm-dev
+      ports:
+      - containerPort: 8000
