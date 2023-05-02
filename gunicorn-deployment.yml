@@ -6,12 +6,12 @@ metadata:
 spec:
  selector:
    matchLabels:
-    type: back
+    type: web
  replicas: 1
  template:
    metadata:
      labels:
-       type: back
+       type: web
    spec:
     containers:
     - name: container
